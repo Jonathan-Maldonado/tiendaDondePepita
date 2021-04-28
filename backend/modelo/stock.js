@@ -6,5 +6,4 @@ let stockSchema = Schema({
   cantidad: Number,
 });
 
-// Se exporta el modulo
 module.exports = mongoose.model("stock", stockSchema);

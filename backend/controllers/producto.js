@@ -1,7 +1,5 @@
-//modelo Producto
 let Producto = require("../modelo/producto");
 
-// registramos Producto  POST
 const registrarProducto = (req, res) => {
   let params = req.body;
   let producto = new Producto();
@@ -21,7 +19,7 @@ const registrarProducto = (req, res) => {
   });
 };
 
-// Buscar categorias
+// Buscar
 const BuscarProducto = (req, res) => {
   let id = req.params["id"];
   Producto.findById({ _id: id }, (err, datosProducto) => {
@@ -37,7 +35,7 @@ const BuscarProducto = (req, res) => {
   });
 };
 
-// Listar producto
+// Listar
 const listaProducto = (req, res) => {
   let nombre = req.params["nombre"];
   Producto.find({ nombre: new RegExp(nombre, "i") }, (err, datosProducto) => {
@@ -53,7 +51,7 @@ const listaProducto = (req, res) => {
   });
 };
 
-// editar producto
+// editar
 const editarProducto = (req, res) => {
   let id = req.params["id"];
   let params = req.body;
@@ -74,7 +72,7 @@ const editarProducto = (req, res) => {
   );
 };
 
-// eliminamos una producto
+// eliminamos
 const eliminarProducto = (req, res) => {
   let id = req.params["id"];
   Producto.findByIdAndDelete({ _id: id }, (err, datosProducto) => {
@@ -90,7 +88,6 @@ const eliminarProducto = (req, res) => {
   });
 };
 
-// exportamos producto
 module.exports = {
   registrarProducto,
   // buscarProducto,
